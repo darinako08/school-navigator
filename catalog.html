@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог кружков — Школьный навигатор</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">🎓 Школьный навигатор</a>
+
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="catalog.html" class="active">Каталог кружков</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-section">
+            <div class="container">
+
+                <div class="catalog-heading">
+                    <span class="subtitle">ВЫБИРАЙ СВОЁ УВЛЕЧЕНИЕ</span>
+                    <h1>Каталог кружков и секций</h1>
+                    <p>Найди интересное занятие среди школьных кружков.</p>
+                </div>
+
+                <div class="search-panel">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 Поиск по названию кружка..."
+                    >
+    
+                <select id="categoryFilter">
+                    <option value="Все">Все направления</option>
+                    <option value="Музыка">Музыка</option>
+                    <option value="Творчество">Творчество</option>
+                    <option value="Спорт">Спорт</option>
+                    <option value="Образование">Образование</option>
+                    <option value="Театр">Театр</option>
+                    <option value="Общественная деятельность">Общественная деятельность</option>
+                </select>
+
+                </div>
+
+                <p id="resultsCount" class="results-count"></p>
+
+                <div id="clubsContainer" class="clubs-grid">
+                    <!-- Карточки кружков создаются через JavaScript -->
+                </div>
+
+                <div id="noResults" class="no-results hidden">
+                    <div>🔎</div>
+                    <h2>Ничего не найдено</h2>
+                    <p>Попробуй изменить поисковый запрос или категорию.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <div id="clubModal" class="modal hidden">
+            <div class="modal-content">
+                <button id="closeModal" class="close-modal"
+                    aria-label="Закрыть">&times;</button>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Школьный навигатор. Электронный справочник кружков.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
