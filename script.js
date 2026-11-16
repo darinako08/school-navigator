@@ -130,9 +130,6 @@ const clubs = [
     }
 ];
 
-
-// 2. ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ СТРАНИЦЫ
-
 const clubsContainer = document.getElementById("clubsContainer");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
@@ -143,8 +140,6 @@ const clubModal = document.getElementById("clubModal");
 const modalBody = document.getElementById("modalBody");
 const closeModal = document.getElementById("closeModal");
 
-
-// 3. ОТОБРАЖЕНИЕ КАРТОЧЕК КРУЖКОВ
 
 function displayClubs(clubList) {
 
@@ -204,8 +199,6 @@ function displayClubs(clubList) {
 }
 
 
-// 4. ПОИСК И ФИЛЬТРАЦИЯ
-
 function filterClubs() {
 
     const searchText =
@@ -228,8 +221,6 @@ function filterClubs() {
     displayClubs(filteredClubs);
 }
 
-
-// 5. ОТКРЫТИЕ ПОДРОБНОЙ ИНФОРМАЦИИ
 
 if (clubsContainer) {
 
@@ -301,8 +292,6 @@ if (clubsContainer) {
 }
 
 
-// 6. ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА
-
 if (closeModal && clubModal) {
 
     closeModal.addEventListener("click", function() {
@@ -325,8 +314,6 @@ document.addEventListener("keydown", function(event) {
 });
 
 
-// 7. ЗАПУСК ПОИСКА И ФИЛЬТРАЦИИ
-
 if (searchInput) {
     searchInput.addEventListener("input", filterClubs);
 }
@@ -335,7 +322,5 @@ if (categoryFilter) {
     categoryFilter.addEventListener("change", filterClubs);
 }
 
-
-// 8. ПЕРВОНАЧАЛЬНОЕ ОТОБРАЖЕНИЕ
 
 displayClubs(clubs);
