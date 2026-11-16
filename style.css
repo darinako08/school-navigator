@@ -1,28 +1,55 @@
+
+/* =====================================
+   ШКОЛЬНЫЙ НАВИГАТОР
+   УНИВЕРСАЛЬНЫЙ АДАПТИВНЫЙ ДИЗАЙН
+===================================== */
+
+/* 1. ОБЩИЕ НАСТРОЙКИ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
 body {
+    width: 100%;
+    min-width: 320px;
     font-family: Arial, sans-serif;
     color: #26344a;
     background: #f7f9fc;
     line-height: 1.6;
+    overflow-x: clip;
 }
 
-.container {
-    width: 90%;
-    max-width: 1150px;
-    margin: 0 auto;
+img {
+    max-width: 100%;
 }
 
 a {
     text-decoration: none;
 }
 
+button,
+input,
+select {
+    font: inherit;
+}
+
+.container {
+    width: min(92%, 1150px);
+    margin-inline: auto;
+}
+
+/* 2. ШАПКА САЙТА */
 
 .header {
+    width: 100%;
     background: white;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     position: sticky;
@@ -36,17 +63,22 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    padding-block: 12px;
 }
 
 .logo {
-    font-size: 21px;
+    font-size: clamp(17px, 2vw, 21px);
     font-weight: bold;
     color: #243b63;
+    overflow-wrap: anywhere;
 }
 
 nav {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(12px, 2.5vw, 30px);
 }
 
 nav a {
@@ -59,6 +91,7 @@ nav a.active {
     color: #3978d5;
 }
 
+/* 3. КНОПКИ */
 
 .btn {
     display: inline-block;
@@ -67,6 +100,7 @@ nav a.active {
     padding: 13px 25px;
     border-radius: 9px;
     font-weight: bold;
+    text-align: center;
     transition: 0.3s;
 }
 
@@ -75,20 +109,25 @@ nav a.active {
     transform: translateY(-2px);
 }
 
+/* 4. ГЛАВНАЯ СТРАНИЦА */
 
 .hero {
     background: linear-gradient(120deg, #e9f1ff, #f3edff);
-    padding: 85px 0;
+    padding: clamp(45px, 8vw, 85px) 0;
+    overflow: hidden;
 }
 
 .hero-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: clamp(25px, 5vw, 50px);
+    min-width: 0;
 }
 
 .hero-text {
+    flex: 1 1 400px;
+    min-width: 0;
     max-width: 580px;
 }
 
@@ -100,21 +139,25 @@ nav a.active {
 }
 
 .hero h1 {
-    font-size: 52px;
+    font-size: clamp(32px, 5vw, 52px);
     line-height: 1.15;
     margin: 15px 0;
     color: #243b63;
+    overflow-wrap: break-word;
 }
 
 .hero-text p {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     color: #66758b;
     margin-bottom: 28px;
 }
 
 .hero-image {
+    flex: 0 1 350px;
     width: 350px;
-    height: 300px;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 250px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -126,6 +169,7 @@ nav a.active {
 .hero-center {
     width: 105px;
     height: 105px;
+    flex: 0 0 105px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,14 +183,16 @@ nav a.active {
     background: #3978d5;
 }
 
+/* 5. НАПРАВЛЕНИЯ */
 
 .categories {
-    padding: 75px 0;
+    padding: clamp(45px, 7vw, 75px) 0;
 }
 
 .section-title {
     text-align: center;
-    font-size: 32px;
+    font-size: clamp(25px, 4vw, 32px);
+    color: #243b63;
 }
 
 .section-description {
@@ -157,11 +203,13 @@ nav a.active {
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: 20px;
 }
 
 .category-card {
+    min-width: 0;
     background: white;
     padding: 28px 18px;
     text-align: center;
@@ -176,8 +224,19 @@ nav a.active {
 }
 
 .category-icon {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 15px;
     font-size: 42px;
-    margin-bottom: 10px;
+}
+
+.category-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .category-card h3 {
@@ -187,12 +246,14 @@ nav a.active {
 .category-card p {
     color: #7b8798;
     font-size: 14px;
+    overflow-wrap: break-word;
 }
 
+/* 6. О ПРОЕКТЕ */
 
 .about {
     background: white;
-    padding: 70px 0;
+    padding: clamp(45px, 7vw, 70px) 0;
 }
 
 .about-content {
@@ -204,10 +265,11 @@ nav a.active {
 
 .about-content > div:first-child {
     max-width: 650px;
+    min-width: 0;
 }
 
 .about h2 {
-    font-size: 30px;
+    font-size: clamp(25px, 4vw, 30px);
     margin-bottom: 20px;
 }
 
@@ -221,13 +283,14 @@ nav a.active {
 }
 
 .about-emoji {
-    font-size: 130px;
+    font-size: clamp(70px, 12vw, 130px);
 }
 
+/* 7. КАТАЛОГ */
 
 .catalog-section {
     min-height: 75vh;
-    padding: 65px 0 80px;
+    padding: clamp(40px, 6vw, 65px) 0 80px;
 }
 
 .catalog-heading {
@@ -236,23 +299,29 @@ nav a.active {
 }
 
 .catalog-heading h1 {
-    font-size: 36px;
+    font-size: clamp(27px, 4vw, 36px);
     margin: 10px 0;
     color: #243b63;
+    overflow-wrap: break-word;
 }
 
 .catalog-heading p {
     color: #7b8798;
 }
 
+/* 8. ПОИСК И ФИЛЬТР */
+
 .search-panel {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .search-panel input,
 .search-panel select {
+    min-width: 0;
     padding: 14px;
     border: 1px solid #dce3ed;
     border-radius: 9px;
@@ -262,7 +331,13 @@ nav a.active {
 }
 
 .search-panel input {
-    flex: 1;
+    flex: 1 1 250px;
+    width: 100%;
+}
+
+.search-panel select {
+    flex: 1 1 220px;
+    width: 100%;
 }
 
 .search-panel input:focus,
@@ -275,19 +350,24 @@ nav a.active {
     margin-bottom: 18px;
 }
 
+/* 9. КАРТОЧКИ КРУЖКОВ */
 
 .clubs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 22px;
+    align-items: stretch;
 }
 
 .club-card {
+    min-width: 0;
     background: white;
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
     transition: 0.3s;
+    overflow: hidden;
 }
 
 .club-card:hover {
@@ -313,18 +393,21 @@ nav a.active {
 .club-card h3 {
     font-size: 21px;
     margin-bottom: 10px;
+    overflow-wrap: break-word;
 }
 
 .club-card p {
     color: #778397;
     font-size: 14px;
     margin-bottom: 10px;
+    overflow-wrap: break-word;
 }
 
 .club-info {
     color: #52627a;
     font-size: 14px;
     margin: 8px 0;
+    overflow-wrap: break-word;
 }
 
 .details-btn {
@@ -345,6 +428,26 @@ nav a.active {
     color: white;
 }
 
+/* 10. ФОТОГРАФИИ КРУЖКОВ */
+
+.club-image {
+    width: 100%;
+    height: clamp(170px, 22vw, 220px);
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* 11. НЕТ РЕЗУЛЬТАТОВ */
 
 .no-results {
     text-align: center;
@@ -363,6 +466,7 @@ nav a.active {
     display: none !important;
 }
 
+/* 12. МОДАЛЬНОЕ ОКНО */
 
 .modal {
     position: fixed;
@@ -384,6 +488,7 @@ nav a.active {
     position: relative;
     max-height: 85vh;
     overflow-y: auto;
+    overflow-wrap: break-word;
 }
 
 .close-modal {
@@ -397,131 +502,7 @@ nav a.active {
     color: #68778c;
 }
 
-
-.footer {
-    background: #243b63;
-    color: white;
-    text-align: center;
-    padding: 25px 0;
-    font-size: 14px;
-}
-
-
-@media (max-width: 850px) {
-    .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .clubs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero-image {
-        width: 270px;
-    }
-}
-
-
-
-@media screen and (max-width: 600px) {
-
-    .container {
-        width: 92%;
-        max-width: 100%;
-    }
-
-    .category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 12px;
-    }
-
-    .category-card {
-        min-width: 0;
-        padding: 20px 10px;
-    }
-
-    .clubs-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .club-card {
-        min-width: 0;
-    }
-
-    .category-card h3 {
-        font-size: 16px;
-    }
-
-    .category-card p {
-        font-size: 13px;
-        overflow-wrap: break-word;
-    }
-
-    .hero-content,
-    .about-content {
-        min-width: 0;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero-image {
-        max-width: 100%;
-    }
-
-    .modal-content {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-
-
-.category-icon {
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
-.category-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.club-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
-}
-
-
-.club-image {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    display: block;
-    border-radius: 12px 12px 0 0;
-}
-
-
-.modal-image {
-    width: 100%;
-    max-height: 280px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
+/* 13. РАСПИСАНИЕ */
 
 .schedule {
     margin-top: 20px;
@@ -539,3 +520,216 @@ nav a.active {
     line-height: 1.5;
 }
 
+/* 14. ПОДВАЛ */
+
+.footer {
+    background: #243b63;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 14px;
+}
+
+/* 15. ПЛАНШЕТЫ И НЕБОЛЬШИЕ ЭКРАНЫ */
+
+@media (max-width: 850px) {
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        gap: 25px;
+    }
+
+    .hero-image {
+        flex-basis: 270px;
+    }
+
+    .about-content {
+        gap: 25px;
+    }
+}
+
+/* 16. ТЕЛЕФОНЫ */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+    /* Шапка */
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 19px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* Главный экран */
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(30px, 8vw, 36px);
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 270px;
+        flex: none;
+        min-height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 15px auto 0;
+    }
+
+    .hero-icon,
+    .hero-center {
+        width: 100%;
+        height: 95px;
+        min-width: 0;
+        flex: none;
+        font-size: 38px;
+    }
+
+    /* Направления */
+    .category-grid {
+        grid-template-columns:
+            repeat(auto-fit, minmax(min(100%, 145px), 1fr));
+        gap: 12px;
+    }
+
+    .category-card {
+        padding: 18px 10px;
+    }
+
+    .category-icon {
+        height: 120px;
+    }
+
+    .category-card h3 {
+        font-size: 16px;
+    }
+
+    .category-card p {
+        font-size: 13px;
+    }
+
+    /* О проекте */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Каталог */
+    .catalog-section {
+        padding-top: 40px;
+    }
+
+    .catalog-heading {
+        margin-bottom: 25px;
+    }
+
+    .search-panel {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-panel input,
+    .search-panel select {
+        width: 100%;
+        flex: 1 1 auto;
+        font-size: 14px;
+    }
+
+    .clubs-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .club-card {
+        padding: 18px;
+    }
+
+    .club-image {
+        height: 200px;
+    }
+
+    /* Модальное окно */
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 90vh;
+        padding: 30px 18px 20px;
+    }
+}
+
+/* 17. ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
+
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 17px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        padding: 20px;
+    }
+
+    .club-card {
+        padding: 15px;
+    }
+}
