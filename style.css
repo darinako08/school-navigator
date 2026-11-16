@@ -426,35 +426,44 @@ nav a.active {
 }
 
 
-@media (max-width: 600px) {
+
+@media screen and (max-width: 600px) {
+
     .container {
         width: 92%;
+        max-width: 100%;
     }
 
-    .nav {
-        flex-direction: column;
-        padding: 15px 0;
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 12px;
     }
 
-    .logo {
-        font-size: 19px;
-        text-align: center;
+    .category-card {
+        min-width: 0;
+        padding: 20px 10px;
     }
 
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+    .clubs-grid {
+        grid-template-columns: 1fr !important;
     }
 
-    .hero {
-        padding: 45px 0;
+    .club-card {
+        min-width: 0;
     }
 
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
+    .category-card h3 {
+        font-size: 16px;
+    }
+
+    .category-card p {
+        font-size: 13px;
+        overflow-wrap: break-word;
+    }
+
+    .hero-content,
+    .about-content {
+        min-width: 0;
     }
 
     .hero h1 {
@@ -462,45 +471,15 @@ nav a.active {
     }
 
     .hero-image {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .category-card {
-        padding: 20px 10px;
-    }
-
-    .category-icon {
-        height: 120px;
-    }
-
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .search-panel {
-        flex-direction: column;
-    }
-
-    .clubs-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .catalog-heading h1 {
-        font-size: 28px;
+        max-width: 100%;
     }
 
     .modal-content {
         width: 100%;
-        padding: 25px 18px;
+        max-width: 100%;
     }
 }
+
 
 
 .category-icon {
