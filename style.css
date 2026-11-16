@@ -542,3 +542,37 @@ nav a.active {
     margin: 8px 0;
     line-height: 1.5;
 }
+/* Настройка отображения на телефонах */
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .clubs-container,
+    .clubs-grid,
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .club-image {
+        height: 200px;
+    }
+
+    .modal-content {
+        width: 92%;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+}
