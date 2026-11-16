@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подбор кружка — Школьный навигатор</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="test.css">
+  <script src="test.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="test-header-inner">
+      <a class="test-logo" href="index.html">🎓 Школьный навигатор</a>
+      <nav class="test-nav" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог кружков</a>
+        <a class="active" href="test.html">Подбор кружка</a>
+      </nav>
+    </div>
+  </header>
+  <main class="test-main">
+    <section class="test-intro">
+      <span class="test-eyebrow">Найди занятие по душе</span>
+      <h1>Какой кружок тебе подойдёт?</h1>
+      <p>Ответь на 7 коротких вопросов — и мы предложим занятия из школьного каталога.</p>
+    </section>
+    <section class="quiz-panel" aria-live="polite">
+      <div class="quiz-progress-row">
+        <span id="questionCounter">Вопрос 1 из 7</span>
+        <span id="progressPercent">14%</span>
+      </div>
+      <div class="quiz-progress-track"><div id="progressBar"></div></div>
+      <div id="questionArea">
+        <h2 id="questionTitle"></h2>
+        <p id="questionHint" class="question-hint"></p>
+        <div id="answers" class="answer-list"></div>
+      </div>
+      <div class="quiz-controls">
+        <button type="button" id="backButton" class="quiz-button secondary" disabled>Назад</button>
+        <button type="button" id="nextButton" class="quiz-button" disabled>Далее</button>
+      </div>
+    </section>
+    <section id="resultArea" class="result-panel" hidden aria-live="polite">
+      <span class="test-eyebrow">Твой результат</span>
+      <h2>Вот что может тебе понравиться!</h2>
+      <p id="resultDescription"></p>
+      <div id="recommendations" class="recommendation-grid"></div>
+      <div class="result-actions">
+        <a class="quiz-button link-button" href="catalog.html">Открыть весь каталог</a>
+        <button type="button" id="restartButton" class="quiz-button secondary">Пройти ещё раз</button>
+      </div>
+    </section>
+  </main>
+  <footer class="test-footer"><p>© Школьный навигатор</p></footer>
+</body>
+</html>
